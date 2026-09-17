@@ -17,8 +17,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Gradle
+      - name: Build APK inside project directory
         run: |
+          cd bkash-Notification-Listener
           chmod +x gradlew || true
           ./gradlew assembleDebug || gradle assembleDebug
 
@@ -26,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: bkash-Notification-Listener/app/build/outputs/apk/debug/app-debug.apk
